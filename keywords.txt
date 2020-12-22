@@ -1,0 +1,17 @@
+beginInt	KEYWORD2
+start	KEYWORD2
+startSampling	KEYWORD2
+intervalSet	KEYWORD2
+displaySet	KEYWORD2
+pointerSet	KEYWORD2
+pointerSetI	KEYWORD2
+rangeSet	KEYWORD2
+showGraph	KEYWORD2
+inputValue	KEYWORD2
+getDataLen	KEYWORD2
+getMin	KEYWORD2
+getMax	KEYWORD2
+getDataMin	KEYWORD2
+getDataMax	KEYWORD2
+displayGraph	KEYWORD2
+clearData	KEYWORD2
