@@ -26,6 +26,13 @@ uint32_t preMil = 0;
 uint32_t preMil2 = 0;
 uint32_t preMil3 = 0;
 
+//Forward declaration
+float squareFourier(float degree, int harmonics);
+void realtimeGraph();
+void preloadGraph();
+void intervalGraph();
+void pausableGraph();
+
 void setup() {
 
   pinMode(A0, INPUT);
