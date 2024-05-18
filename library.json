@@ -20,6 +20,6 @@
     "dependencies": {
         "olikraus/U8g2": "^2.34.0"
     },
-    "frameworks": "*",
+    "frameworks": "arduino",
     "platforms": "*"
 }
