@@ -1,6 +1,6 @@
 {
     "name": "U8g2-Graphing",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Simplifying the creation of line graphs on U8g2 display",
     "keywords": "display, graph",
     "repository":
