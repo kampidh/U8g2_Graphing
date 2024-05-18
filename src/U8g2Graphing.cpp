@@ -14,33 +14,42 @@ U8g2Graphing::U8g2Graphing(U8G2 *u8g) : u8g2(u8g), graphstart(true) {}
 //Deconstructor, delete all data.
 //========================================================================
 U8g2Graphing::~U8g2Graphing() {
-    if (!isTypeInt) {
-        if (graph) {
-            for (uint16_t i = 0; i < grwidth; i++) {
-                delete [] graph[i];
-            }
-            delete [] graph;
+    resetArray();
+}
+
+void U8g2Graphing::resetArray() {
+    if (graph) {
+        for (uint16_t i = 0; i < grwidth; i++) {
+            delete [] graph[i];
         }
-        if (dataset) {
-            delete [] dataset;
-        }
-    } else {
-        if (graphInt) {
-            for (uint16_t i = 0; i < grwidth; i++) {
-                delete [] graphInt[i];
-            }
-            delete [] graphInt;
-        }
-        if (datasetInt) {
-            delete [] datasetInt;
-        }
+        delete [] graph;
     }
+    if (dataset) {
+        delete [] dataset;
+    }
+    if (graphInt) {
+        for (uint16_t i = 0; i < grwidth; i++) {
+            delete [] graphInt[i];
+        }
+        delete [] graphInt;
+    }
+    if (datasetInt) {
+        delete [] datasetInt;
+    }
+    graph = nullptr;
+    graphInt = nullptr;
+    dataset = nullptr;
+    datasetInt = nullptr;
+    graphstart = true;
 }
 
 //Floating point buffer initializer, define the position and size of the graph,
 //then set the buffers to heap memory.
 //========================================================================
 void U8g2Graphing::begin(uint16_t fromx, uint16_t fromy, uint16_t tox, uint16_t toy) {
+    if (!graphstart) {
+        resetArray();
+    }
     this->fromx = fromx;
     this->fromy = fromy;
     this->tox = tox;
@@ -79,6 +88,9 @@ void U8g2Graphing::begin(uint16_t fromx, uint16_t fromy, uint16_t tox, uint16_t 
 //then set the buffers to heap memory.
 //========================================================================
 void U8g2Graphing::beginInt(uint16_t fromx, uint16_t fromy, uint16_t tox, uint16_t toy) {
+    if (!graphstart) {
+        resetArray();
+    }
     this->fromx = fromx;
     this->fromy = fromy;
     this->tox = tox;
