@@ -1,0 +1,25 @@
+{
+    "name": "U8g2-Graphing",
+    "version": "1.0.0",
+    "description": "Simplifying the creation of line graphs on U8g2 display",
+    "keywords": "display, graph",
+    "repository":
+    {
+        "type": "git",
+        "url": "https://github.com/kampidh/U8g2_Graphing.git"
+    },
+    "authors":
+    [
+        {
+            "name": "Kampidh",
+            "email": "qampidh@gmail.com",
+            "maintainer": true
+        }
+    ],
+    "license": "MIT",
+    "dependencies": {
+        "olikraus/U8g2": "^2.34.0"
+    },
+    "frameworks": "*",
+    "platforms": "*"
+}
