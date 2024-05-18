@@ -47,7 +47,7 @@ class U8g2Graphing
     uint16_t grwidth, fromx, fromy, tox, toy, ndx, _pointndx, spd;
     float minval, maxval, mindata, maxdata, vmin, vmax;
     uint32_t curmil, curmcr, ppt, intvl;
-    bool graphstart, activate, xaxis, autorange, pointer, dotted, isFloat;
+    bool graphstart, activate, xaxis, autorange, pointer, dotted, isFloat, isTypeInt;
     U8G2 *u8g2;
 };
 

@@ -15,10 +15,27 @@ U8g2Graphing::U8g2Graphing(U8G2 *u8g) : u8g2(u8g), graphstart(true) {}
 //Deconstructor, delete all data.
 //========================================================================
 U8g2Graphing::~U8g2Graphing() {
-	delete [] graph;
-	delete [] dataset;
-	delete [] graphInt;
-	delete [] datasetInt;
+	if (!isTypeInt) {
+		if (graph) {
+			for (uint16_t i = 0; i < grwidth; i++) {
+				delete [] graph[i];
+			}
+			delete [] graph;
+		}
+		if (dataset) {
+			delete [] dataset;
+		}
+	} else {
+		if (graphInt) {
+			for (uint16_t i = 0; i < grwidth; i++) {
+				delete [] graphInt[i];
+			}
+			delete [] graphInt;
+		}
+		if (datasetInt) {
+			delete [] datasetInt;
+		}
+	}
 }
 
 //Floating point buffer initializer, define the position and size of the graph,
@@ -56,6 +73,7 @@ void U8g2Graphing::begin(uint16_t fromx, uint16_t fromy, uint16_t tox, uint16_t 
 	_pointndx = 0;
 	intvl = 0;
 	spd = 1;
+    isTypeInt = false;
 }
 
 //Integer buffer initializer, define the position and size of the graph,
@@ -95,6 +113,7 @@ void U8g2Graphing::beginInt(uint16_t fromx, uint16_t fromy, uint16_t tox, uint16
 	_pointndx = 0;
 	intvl = 0;
 	spd = 1;
+    isTypeInt = true;
 }
 
 //Start the graph sampling using function.
